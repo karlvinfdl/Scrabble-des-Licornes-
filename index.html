@@ -26,6 +26,11 @@
           Score :
           <span class="hud__valeur">120 pts</span>
         </p>
+
+        <p class="hud__ligne">
+          Trouver
+          <span class="hud__valeur">4/10</span>
+        </p>
       </div>
 
       <div class="hud__vies" aria-label="Vies">
@@ -63,8 +68,51 @@
             <span class="niveau__texte">Difficile</span>
           </div>
 
+          <!-- Lettres -->
+          <div class="tuiles" aria-label="Lettres proposées">
+            <div class="tuile"><span class="tuile__lettre">A</span></div>
+            <div class="tuile"><span class="tuile__lettre">N</span></div>
+            <div class="tuile"><span class="tuile__lettre">C</span></div>
+            <div class="tuile"><span class="tuile__lettre">T</span></div>
+            <div class="tuile"><span class="tuile__lettre">E</span></div>
+            <div class="tuile"><span class="tuile__lettre">O</span></div>
+          </div>
+
+          <!-- Réponse -->
+          <div class="reponse" aria-label="Mot en cours">
+            <div class="reponse__ligne">
+              <span class="reponse__lettre reponse__lettre--pleine">O</span>
+              <span class="reponse__lettre reponse__lettre--pleine">C</span>
+              <span class="reponse__lettre">_</span>
+              <span class="reponse__lettre">_</span>
+              <span class="reponse__lettre">_</span>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="actions" aria-label="Actions">
+            <button class="actions__btn" type="button" aria-label="Mélanger">
+              <i class="fa-solid fa-mortar-pestle"></i>
+            </button>
+
+            <button class="actions__btn" type="button" aria-label="Indice">
+              <i class="fa-solid fa-lightbulb"></i>
+            </button>
+
+            <button class="actions__btn" type="button" aria-label="Effacer">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+
     </section>
 
   </main>
+
+
+  <script src="script.js"></script>
 </body>
 </html>

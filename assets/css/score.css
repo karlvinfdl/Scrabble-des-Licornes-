@@ -1,0 +1,199 @@
+
+    @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@200..1000&display=swap');
+
+    :root{
+      --shadow: 0 14px 30px rgba(0,0,0,.45);
+      --red: #d30000;
+      --ink: #111;
+      --beigeBtn: #ead9ab;
+      --blueBtn: #0d5f76;
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      overflow:hidden;
+      font-family: "Nunito", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    /* ===== Background plein écran ===== */
+    .page{
+      position:relative;
+      width:100vw;
+      height:100vh;
+      isolation:isolate;
+    }
+    .page::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        linear-gradient(0deg, rgba(0,0,0,.12), rgba(0,0,0,.12)),
+        url("/assets/images/backgroundeasy.png") center / cover no-repeat;
+      z-index:-1;
+    }
+
+    /* ===== Centre ===== */
+    .center{
+      width:100%;
+      height:100%;
+      display:grid;
+      place-items:center;
+      padding: 40px 18px 90px;
+    }
+
+    /* Panneau */
+    .panel{
+      position:relative;
+      width:min(980px, 92vw);
+      height:min(880px, 86vh);
+      background: url("/assets/images/fondbois2.png") center / 100% 100% no-repeat;
+      filter: drop-shadow(var(--shadow));
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      padding: 200px 48px 120px;
+      gap: 26px;
+    }
+
+    /* Ruban */
+    .ribbon{
+      position:absolute;
+      top: 58px;
+      left:50%;
+      transform:translateX(-50%);
+      width:min(900px, 95%);
+      pointer-events:none;
+    }
+    .ribbon img{
+      width:100%;
+      height:auto;
+      display:block;
+      user-select:none;
+      -webkit-user-drag:none;
+    }
+
+    /* Texte sur ruban (si tu n'as pas une image ruban déjà avec texte) */
+    .ribbon__title{
+      position:absolute;
+      top: 92px;
+      left:50%;
+      transform:translateX(-50%);
+      margin:0;
+      font-family:"Lilita One", system-ui, sans-serif;
+      font-size: clamp(30px, 3.4vw, 48px);
+      color:#fff;
+      text-shadow: 0 8px 20px rgba(0,0,0,.45);
+      pointer-events:none;
+      white-space:nowrap;
+    }
+
+    /* ===== Tableau des scores ===== */
+    .scoreboard{
+      width: min(520px, 86%);
+      margin-top: 30px;
+      color: var(--ink);
+      font-weight: 800;
+      font-size: clamp(18px, 2.1vw, 28px);
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns: 110px 1fr 120px;
+      align-items:center;
+      padding: 12px 6px;
+    }
+
+    .rank{
+      text-align:left;
+      opacity:.95;
+      margin-left: 20px;
+    }
+
+    .name{
+      text-align:center;
+      letter-spacing:.2px;
+    }
+
+    .pts{
+      text-align:right;
+      opacity:.95;
+      margin-right: 20px;
+    }
+
+    .name--me{
+      color: var(--red);
+      font-weight: 900;
+    }
+
+    /* ===== Bloc stats bas ===== */
+    .stats{
+      margin-top: auto;
+      padding-bottom: 10px;
+      text-align:center;
+      color: var(--ink);
+      font-weight: 900;
+      font-size: clamp(22px, 2.4vw, 34px);
+      line-height: 1.6;
+    }
+
+    .stats .value-red{
+      color: var(--red);
+      font-weight: 900;
+      padding-left: 8px;
+    }
+
+    /* ===== Boutons bas ===== */
+    .actions{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom: 28px;
+      display:flex;
+      justify-content:space-between;
+      padding: 0 36px;
+      pointer-events:none;
+    }
+
+    .btn{
+      pointer-events:auto;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      padding: 14px 26px;
+      border-radius: 14px;
+      font-family:"Lilita One", system-ui, sans-serif;
+      font-size: clamp(22px, 2.2vw, 34px);
+
+      box-shadow: 0 10px 0 rgba(0,0,0,.22);
+      transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
+      user-select:none;
+    }
+
+    .btn:active{
+      transform: translateY(3px);
+      box-shadow: 0 7px 0 rgba(0,0,0,.22);
+    }
+
+    .btn--back{
+      background: var(--blueBtn);
+      color: #f2e6c9;
+    }
+
+    .btn--next{
+      background: #ead9ab;
+      color:#0d5f76;
+    }
+
+    .btn:hover{ filter: brightness(1.05); }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 900px){
+      .panel{ padding: 140px 18px 110px; }
+      .actions{ padding: 0 18px; }
+      .row{ grid-template-columns: 90px 1fr 100px; }
+    }

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Défaite - Scrabble des licornes</title>
+<link rel="stylesheet" href="/assets/css/defaite.css">
+</head>
+
+<body>
+  <main class="page" role="application" aria-label="Écran de défaite">
+
+    <h1 class="top-title">Dommage tu as perdu!!!</h1>
+
+    <!-- Coeurs -->
+    <div class="hearts" aria-label="Vies">
+      <!-- adapte le nombre/état perdu selon ton jeu -->
+      <img class="heart" src="/assets/images/vie.png" alt="vie">
+      <img class="heart" src="/assets/images/vie.png" alt="vie">
+      <img class="heart" src="/assets/images/vie.png" alt="vie">
+      <img class="heart" src="/assets/images/vie.png" alt="vie">
+      <img class="heart" src="/assets/images/vie.png" alt="vie">
+      
+      
+      <img class="heart" src="/assets/images/vie.png" alt="vie">
+      <img class="heart" src="/assets/images/vie.png" alt="vie">
+      <img class="heart heart--lost" src="/assets/images/vie.png" alt="vie perdue">
+      <img class="heart heart--lost" src="/assets/images/vie.png" alt="vie perdue">
+      <img class="heart heart--lost" src="/assets/images/vie.png" alt="vie perdue">
+    </div>
+
+    <section class="center" aria-label="Contenu défaite">
+      <div class="panel" role="group" aria-label="Panneau défaite">
+
+        <!-- Ruban -->
+        <div class="ribbon" aria-hidden="true">
+          <img src="assets/images/ruban_recompense.png" alt="">
+        </div>
+        <!-- Fallback texte si tu n'as pas l'image du ruban -->
+        <div class="ribbon__fallback">Scrabble Des licornes</div>
+
+        <!-- Licorne -->
+        <img class="mascot" src="/assets/images/triste.png" alt="Licorne">
+
+        <!-- Stats -->
+        <div class="stats" aria-label="Résultats">
+          <div>Joueur : <span class="value-red">Karlvin</span></div>
+          <div>Score : <span class="value-red">120 pts</span></div>
+          <div>Meilleur score : <span class="value-red">260 pts</span></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Boutons bas -->
+    <div class="actions" aria-label="Actions">
+      <!-- Si tu veux des liens directs, remplace <button> par <a href="..."> -->
+      <a href="/index.html" class="btn btn--back">Rejouer</a>
+      <a href="/pages/récompense.html" class="btn btn--next">Suivant</a>
+
+    </div>
+
+  </main>
+</body>
+</html>
