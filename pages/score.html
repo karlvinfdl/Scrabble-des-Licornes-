@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tableau des scores - Scrabble des licornes</title>
+    <link rel="stylesheet" href="../assets/css/score.css">
+</head>
+
+<body>
+    <main class="jeu jeu--score" role="application" aria-label="Scrabble des licornes - Scores">
+
+        <!-- Panneau central -->
+        <section class="panneau" aria-label="Classement">
+            <div class="panneau__bois panneau__bois--score" role="group" aria-label="Panneau scores">
+
+                <h1 class="titre">Tableau des scores</h1>
+
+                <!-- OPTION B : vrai tableau -->
+                <table class="scoreboard" aria-label="Classement">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="scoreboard__th scoreboard__th--rank">Cl.</th>
+                            <th scope="col" class="scoreboard__th scoreboard__th--name">Nom</th>
+                            <th scope="col" class="scoreboard__th scoreboard__th--pts">Score</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr class="scoreboard__tr">
+                            <td class="scoreboard__td scoreboard__rank">#1</td>
+                            <td class="scoreboard__td scoreboard__name scoreboard__name--me">Karlvin</td>
+                            <td class="scoreboard__td scoreboard__pts">360</td>
+                        </tr>
+                        <tr class="scoreboard__tr">
+                            <td class="scoreboard__td scoreboard__rank">2e</td>
+                            <td class="scoreboard__td scoreboard__name">ALEXANDRE</td>
+                            <td class="scoreboard__td scoreboard__pts">340</td>
+                        </tr>
+                        <tr class="scoreboard__tr">
+                            <td class="scoreboard__td scoreboard__rank">3e</td>
+                            <td class="scoreboard__td scoreboard__name">SOPHIE</td>
+                            <td class="scoreboard__td scoreboard__pts">320</td>
+                        </tr>
+                        <tr class="scoreboard__tr">
+                            <td class="scoreboard__td scoreboard__rank">4e</td>
+                            <td class="scoreboard__td scoreboard__name">MAYA</td>
+                            <td class="scoreboard__td scoreboard__pts">300</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="stats" aria-label="Statistiques">
+                    <div>Meilleur score : <span class="stats__valeur">360</span></div>
+                    <div>Joueur : <span class="stats__valeur">Karlvin</span></div>
+                    <div>Score : <span class="stats__valeur">120</span></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Navigation bas -->
+        <footer class="actions actions--nav" aria-label="Actions">
+            <a class="btn btn--back" href="/pages/jeu.html">Rejouer</a>
+            <a class="btn btn--next" href="/pages/recompense.html">Suivant</a>
+        </footer>
+
+    </main>
+</body>
+
+</html>
