@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@200..1000&display=swap');
+
+/* =========================
+   BASE
+========================= */
+:root {
+    --rouge: #D90000;
+    --orange: #FEAA2C;
+    --op50: 0.5;
+    --ombre: 0 14px 30px rgba(0, 0, 0, .45);
+    --ink: #111;
+
+    --btn-beige: #ead9ab;
+    --btn-bleu: #0d5f76;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: "Nunito", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: #fff;
+}
+
+/* =========================
+   FOND
+========================= */
+.jeu {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    isolation: isolate;
+}
+
+.jeu::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        linear-gradient(0deg, rgba(0, 0, 0, .12), rgba(0, 0, 0, .12)),
+        url("../images/background2.png") center / cover no-repeat;
+    z-index: -1;
+}
+
+/* =========================
+   PANNEAU
+========================= */
+.panneau {
+    position: relative;
+    z-index: 1;
+    height: calc(100vh - 130px);
+    display: grid;
+    place-items: center;
+    padding: 0 18px 26px;
+}
+
+.panneau__bois {
+    background: transparent;
+    margin-top: 150px;
+}
+
+/* Titre */
+.titre {
+    margin: -30px 0 0;
+    text-align: center;
+    font-family: "Lilita One", system-ui, sans-serif;
+    font-size: clamp(26px, 3.1vw, 44px);
+    text-shadow: 0 8px 20px rgba(0, 0, 0, .45);
+}
+
+/* =========================
+   TABLEAU SCOREBOARD (Option B)
+========================= */
+.scoreboard {
+    width: min(460px, 78%);
+    margin: 40px auto 0;
+    color: var(--ink);
+    font-weight: 900;
+    font-size: clamp(17px, 2vw, 26px);
+
+    border-collapse: separate;
+    /* permet l'espacement */
+    border-spacing: 0 10px;
+    /* GAP vertical entre lignes */
+}
+
+/* Cellules */
+.scoreboard__th,
+.scoreboard__td {
+    padding: 10px 10px;
+}
+
+/* Entête */
+.scoreboard__th {
+    font-family: "Lilita One", system-ui, sans-serif;
+    font-weight: 900;
+    opacity: .85;
+    padding-top: 0;
+    padding-bottom: 6px;
+}
+
+/* Largeurs / alignements des colonnes */
+.scoreboard__th--rank,
+.scoreboard__rank {
+    width: 72px;
+    text-align: left;
+    opacity: .95;
+}
+
+.scoreboard__th--name,
+.scoreboard__name {
+    text-align: center;
+    letter-spacing: .2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.scoreboard__th--pts,
+.scoreboard__pts {
+    width: 72px;
+    text-align: right;
+    white-space: nowrap;
+    opacity: .95;
+}
+
+
+.scoreboard__name--me {
+    color: var(--rouge);
+}
+
+
+.scoreboard__pts::after {
+    content: " pts";
+    font-size: .8em;
+    opacity: .75;
+}
+
+/* =========================
+   STATS
+========================= */
+.stats {
+    margin-top: 26px;
+    padding-bottom: 6px;
+    text-align: center;
+    color: var(--ink);
+    font-weight: 900;
+    font-size: clamp(20px, 2.2vw, 30px);
+    line-height: 1.5;
+}
+
+.stats__valeur {
+    color: var(--rouge);
+    padding-left: 6px;
+}
+
+/* =========================
+   NAV BAS
+========================= */
+.actions.actions--nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 32px;
+    pointer-events: none;
+}
+
+.btn {
+    pointer-events: auto;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 22px;
+    border-radius: 14px;
+    font-family: "Lilita One", system-ui, sans-serif;
+    font-size: clamp(20px, 2vw, 30px);
+
+    box-shadow: 0 10px 0 rgba(0, 0, 0, .22);
+    transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
+    user-select: none;
+}
+
+.btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 7px 0 rgba(0, 0, 0, .22);
+}
+
+.btn--back {
+    background: var(--btn-bleu);
+    color: #f2e6c9;
+}
+
+.btn--next {
+    background: var(--btn-beige);
+    color: var(--btn-bleu);
+}
+
+.btn:hover {
+    filter: brightness(1.05);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+    .scoreboard {
+        width: 90%;
+        font-size: clamp(16px, 3.5vw, 22px);
+    }
+
+    .scoreboard__th--rank,
+    .scoreboard__rank,
+    .scoreboard__th--pts,
+    .scoreboard__pts {
+        width: 62px;
+    }
+
+    .actions.actions--nav {
+        padding: 0 18px;
+    }
+}
