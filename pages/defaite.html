@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Défaite - Scrabble des licornes</title>
+    <link rel="stylesheet" href="../assets/css/defaite.css">
+</head>
+
+<body>
+    <main class="jeu jeu--defaite" role="application" aria-label="Scrabble des licornes - Défaite">
+
+        <header class="hud">
+
+            <div class="hud__vies" aria-label="Vies">
+                <img class="hud__coeur" src="../assets/images/vie.png" alt="vie">
+                <img class="hud__coeur" src="../assets/images/vie.png" alt="vie">
+                <img class="hud__coeur" src="../assets/images/vie.png" alt="vie">
+                <img class="hud__coeur" src="../assets/images/vie.png" alt="vie">
+                <img class="hud__coeur" src="../assets/images/vie.png" alt="vie">
+
+                <img class="hud__coeur" src="../assets/images/vie.png" alt="vie">
+                <img class="hud__coeur" src="../assets/images/vie.png" alt="vie">
+                <img class="hud__coeur hud__coeur--perdu" src="../assets/images/vie.png" alt="vie perdue">
+                <img class="hud__coeur hud__coeur--perdu" src="../assets/images/vie.png" alt="vie perdue">
+                <img class="hud__coeur hud__coeur--perdu" src="../assets/images/vie.png" alt="vie perdue">
+            </div>
+        </header>
+
+        <!-- Panneau central -->
+        <section class="panneau" aria-label="Résultat">
+            <div class="panneau__bois panneau__bois--resultat" role="group" aria-label="Panneau défaite">
+
+                <h1 class="titre">Scrabble des licornes</h1>
+
+                <img class="mascot" src="../assets/images/triste.png" alt="Licorne triste">
+
+                <div class="stats" aria-label="Statistiques">
+                    <div>Meilleur score : <span class="stats__valeur">260 pts</span></div>
+                    <div>Joueur : <span class="stats__valeur">Karlvin</span></div>
+                    <div>Score : <span class="stats__valeur">120 pts</span></div>
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- Navigation bas -->
+        <footer class="actions actions--nav" aria-label="Actions">
+            <a href="/pages/jeu.html" class="btn btn--back">Rejouer</a>
+            <a href="/pages/récompense.html" class="btn btn--next">Suivant</a>
+        </footer>
+    </main>
+</body>
+
+</html>
