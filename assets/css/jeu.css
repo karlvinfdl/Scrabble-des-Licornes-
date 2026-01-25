@@ -1,0 +1,637 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+    --rose: #ED1566;
+    --marron: #73431F;
+    --rouge: #D90000;
+    --gris: #D9D9D9;
+    --orange: #FEAA2C;
+    --op50: 0.5;
+    --ombre: 0 14px 30px rgba(0, 0, 0, .35);
+    --btn-beige: #ead9ab;
+    --btn-bleu: #0d5f76;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: #fff;
+}
+
+/* FOND GLOBAL */
+.jeu {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.jeu::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("/assets/images/backgroundeasy1.png") center / cover no-repeat;
+    z-index: 0;
+    opacity: 1;
+}
+
+/* HUD */
+.hud {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 26px 30px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, .35);
+}
+
+.hud__infos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.hud__ligne {
+    margin: 0;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.05;
+    font-family: "Nunito", system-ui, sans-serif;
+}
+
+.hud__valeur--joueur {
+    color: var(--orange);
+}
+
+.hud__vies {
+    display: grid;
+    grid-template-columns: repeat(5, 44px);
+    gap: 12px 14px;
+}
+
+.hud__coeur {
+    width: 44px;
+    height: auto;
+}
+
+.hud__coeur--perdu {
+    opacity: var(--op50);
+}
+
+/* PANNEAU CENTRAL (REMONTé) */
+.panneau {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 30px;
+}
+
+/* PAS DE FOND : transparent */
+.panneau__bois {
+    position: relative;
+    width: min(1000px, 92vw);
+    height: min(900px, 82vh);
+    margin-top: -100px;
+    background: transparent;
+    filter: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* TITRE */
+.titre {
+    margin: 12px 0 12px;
+    font-family: "Lilita One", system-ui, sans-serif;
+    font-size: 45px;
+    font-weight: 900;
+    text-align: center;
+    text-shadow: 0 4px 0 rgba(0, 0, 0, .25);
+}
+
+/* CONTENU */
+.contenu {
+    width: 82%;
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+}
+
+/* MINUTEUR */
+.minuteur {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.minuteur__texte {
+    font-size: 25px;
+    font-weight: 600;
+    white-space: nowrap;
+    font-family: "Nunito", system-ui, sans-serif;
+}
+
+.minuteur__barre {
+    flex: 1;
+    height: 16px;
+    background: var(--gris);
+    border-radius: 999px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, .18);
+}
+
+.minuteur__progression {
+    height: 100%;
+    width: 65%;
+    background: var(--rose);
+}
+
+/* DIFFICULTÉ */
+.niveau__texte {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--rouge);
+    text-shadow: 0 3px 0 rgba(0, 0, 0, .12);
+    font-family: "Nunito", system-ui, sans-serif;
+}
+
+/* TUILES */
+.tuiles {
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+}
+
+.tuile {
+    width: 90px;
+    height: 92px;
+    background: url("/assets/images/tilelettre.png") center / contain no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0 8px 10px rgba(0, 0, 0, .25));
+}
+
+.tuile__lettre {
+    font-size: 50px;
+    font-weight: 900;
+    color: var(--rose);
+    font-family: "Lilita One", system-ui, sans-serif;
+}
+
+.tuile--inactive {
+    opacity: var(--op50);
+}
+
+/* REPONSE */
+.reponse {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.reponse__ligne {
+    display: flex;
+    gap: 16px;
+    font-weight: 900;
+    color: var(--marron);
+    text-shadow: 0 8px 10px rgba(0, 0, 0, .18);
+}
+
+.reponse__lettre {
+    min-width: 50px;
+    text-align: center;
+    opacity: .6;
+    font-family: "Lilita One", system-ui, sans-serif;
+    font-size: 4rem;
+}
+
+.reponse__lettre--pleine {
+    opacity: 1;
+}
+
+/* ACTIONS (FOOTER) */
+.footer-actions {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 22px;
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    margin-bottom: 30px;
+}
+
+.actions__btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 44px;
+    color: var(--marron);
+    opacity: .9;
+    transition: transform .12s ease, opacity .12s ease;
+}
+
+.actions__btn:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* footer */
+.actions.actions--nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 24px;
+    display: flex;
+    justify-content: right;
+    padding: 0 36px;
+    pointer-events: none;
+}
+
+.btn {
+    pointer-events: auto;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 14px;
+    font-family: "Lilita One", system-ui, sans-serif;
+    font-size: clamp(20px, 2vw, 32px);
+    box-shadow: 0 10px 0 rgba(0, 0, 0, .22);
+}
+
+.btn:active {
+    transform: translateY(3px);
+}
+
+.btn--next {
+    background: var(--btn-beige);
+    color: var(--btn-bleu);
+}
+
+/* =========================
+   RESPONSIVE – Multi breakpoints
+   Colle ça EN BAS de ton fichier
+========================= */
+
+/* 1) <= 1024px : tablette / petits laptops */
+@media (max-width: 1024px) {
+    .hud {
+        padding: 18px 18px;
+    }
+
+    .hud__ligne {
+        font-size: 26px;
+    }
+
+    .panneau__bois {
+        width: min(940px, 94vw);
+        height: min(820px, 86vh);
+        margin-top: -70px;
+        padding-bottom: 110px;
+    }
+
+    .titre {
+        font-size: 42px;
+    }
+
+    .contenu {
+        width: 88%;
+        gap: 20px;
+    }
+
+    .minuteur {
+        width: 60%;
+    }
+
+    .minuteur__texte {
+        font-size: 22px;
+    }
+
+    .niveau__texte {
+        font-size: 1.8rem;
+    }
+
+    .tuile {
+        width: 78px;
+        height: 78px;
+    }
+
+    .tuile__lettre {
+        font-size: 44px;
+    }
+
+    .reponse__lettre {
+        font-size: 3.2rem;
+        min-width: 42px;
+    }
+
+    .footer-actions {
+        gap: 60px;
+        bottom: 18px;
+    }
+
+    .actions__btn {
+        font-size: 40px;
+    }
+}
+
+/* 2) <= 768px : tablette portrait / gros mobiles */
+@media (max-width: 768px) {
+    body {
+        overflow: auto;
+    }
+
+    .jeu {
+        min-height: 100vh;
+    }
+
+    /* HUD : texte à gauche, coeurs à droite en 2 lignes (5 + 5) */
+    .hud {
+        flex-direction: row;
+        /* IMPORTANT: plus column */
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px 14px 10px;
+        width: 100%;
+    }
+
+    .hud__infos {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex: 1;
+        /* prend la place à gauche */
+        min-width: 0;
+    }
+
+    .hud__ligne {
+        font-size: 20px;
+    }
+
+    .hud__vies {
+        display: grid;
+        grid-template-columns: repeat(5, 28px);
+        /* 2 lignes pour 10 coeurs */
+        gap: 8px 10px;
+        justify-content: end;
+        align-content: start;
+    }
+
+    .hud__coeur {
+        width: 28px;
+    }
+
+    .panneau {
+        padding-top: 10px;
+    }
+
+    /* Panneau : footer dans le flux => plus de gros espace */
+    .panneau__bois {
+        position: relative;
+
+        width: 94vw;
+        height: auto;
+        min-height: 72vh;
+
+        margin-top: 120px;
+        padding-bottom: 0;
+        /* IMPORTANT: plus besoin */
+
+        background: transparent;
+        filter: none;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .titre {
+        font-size: 34px;
+        margin: 10px 0 6px;
+    }
+
+    .contenu {
+        width: 94%;
+        gap: 18px;
+        margin-top: 10px;
+    }
+
+    .minuteur {
+        width: 90%;
+        gap: 12px;
+    }
+
+    .minuteur__texte {
+        font-size: 18px;
+    }
+
+    .minuteur__barre {
+        height: 14px;
+    }
+
+    .niveau__texte {
+        font-size: 1.6rem;
+    }
+
+    .tuiles {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .tuile {
+        width: 64px;
+        height: 64px;
+    }
+
+    .tuile__lettre {
+        font-size: 36px;
+    }
+
+    .reponse__ligne {
+        gap: 10px;
+    }
+
+    .reponse__lettre {
+        font-size: 2.8rem;
+        min-width: 34px;
+    }
+
+    /* Footer : dans le flux (pas absolute) */
+    .footer-actions {
+        position: relative;
+        /* IMPORTANT: au lieu de absolute */
+        left: auto;
+        right: auto;
+        bottom: auto;
+
+        margin-top: auto;
+        /* pousse en bas du panneau */
+        margin-bottom: 18px;
+
+        display: flex;
+        justify-content: center;
+        gap: 44px;
+    }
+
+    .actions__btn {
+        font-size: 34px;
+    }
+}
+
+
+/* 3) <= 480px : mobiles standards */
+@media (max-width: 480px) {
+    .hud {
+        display: flex;
+        flex-direction: row;
+        /* TEXTE | COEURS */
+        align-items: flex-start;
+        /* le texte reste en haut */
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .hud__infos {
+        flex: 1;
+    }
+
+    .hud__vies {
+        display: grid;
+        grid-template-columns: repeat(5, 28px);
+        /* 5 par ligne → 2 lignes */
+        gap: 8px 10px;
+        justify-content: end;
+    }
+
+    .hud__coeur {
+        width: 24px;
+    }
+
+    .titre {
+        font-size: 28px;
+    }
+
+    .minuteur {
+        width: 100%;
+    }
+
+    .minuteur__texte {
+        font-size: 16px;
+    }
+
+    .niveau__texte {
+        font-size: 1.4rem;
+    }
+
+    .tuile {
+        width: 56px;
+        height: 56px;
+    }
+
+    .tuile__lettre {
+        font-size: 32px;
+    }
+
+    .reponse__lettre {
+        font-size: 2.4rem;
+        min-width: 30px;
+    }
+
+    .footer-actions {
+        gap: 32px;
+    }
+
+    .actions__btn {
+        font-size: 30px;
+    }
+
+    .jeu {
+        position: relative;
+        width: 100%;
+        height: 90vh;
+        overflow: hidden;
+    }
+
+    .jeu::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background-image: url("/assets/images/backgroundeasymobile.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        z-index: 0;
+        opacity: 1;
+    }
+
+
+}
+
+/* 4) <= 360px : très petits mobiles (iPhone SE / anciens) */
+@media (max-width: 360px) {
+    .hud__ligne {
+        font-size: 16px;
+    }
+
+    .titre {
+        font-size: 24px;
+    }
+
+    .tuile {
+        width: 50px;
+        height: 50px;
+    }
+
+    .tuile__lettre {
+        font-size: 28px;
+    }
+
+    .reponse__lettre {
+        font-size: 2.1rem;
+        min-width: 26px;
+    }
+
+    .footer-actions {
+        gap: 26px;
+    }
+
+    .actions__btn {
+        font-size: 28px;
+    }
+}
+
+/* Bonus: mobiles avec faible hauteur (clavier affiché, etc.) */
+@media (max-height: 700px) and (max-width: 768px) {
+    .footer-actions {
+        position: sticky;
+        /* reste accessible */
+        bottom: 10px;
+    }
+
+    .panneau__bois {
+        padding-bottom: 80px;
+    }
+}
