@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Règles - Scrabble des licornes</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <main class="jeu jeu--regles" aria-label="Règles du jeu">
+
+        <!-- PAS DE HUD -->
+
+        <section class="panneau">
+            <div class="panneau__bois panneau__bois--regles">
+
+                <h1 class="titre">Règles du jeu<br>Scrabble des licornes</h1>
+
+                <div class="regles-grid">
+
+                    <!-- COLONNE GAUCHE -->
+                    <div class="regles-col">
+                        <p class="regles-texte">
+                            <strong>1.</strong> Comment jouer : touche les tuiles pour placer les lettres dans les
+                            cases.
+                        </p>
+
+                        <!-- mêmes éléments que le jeu : tuiles -->
+                        <div class="tuiles tuiles--regles" aria-label="Exemple de tuiles">
+                            <div class="tuile"><span class="tuile__lettre">A</span></div>
+                            <div class="tuile"><span class="tuile__lettre">N</span></div>
+                            <div class="tuile"><span class="tuile__lettre">C</span></div>
+                            <div class="tuile"><span class="tuile__lettre">T</span></div>
+                            <div class="tuile"><span class="tuile__lettre">E</span></div>
+                            <div class="tuile"><span class="tuile__lettre">O</span></div>
+                        </div>
+
+                        <p class="regles-texte">
+                            <strong>2.</strong> Tu as <strong>15 secondes</strong> par manche pour valider ta réponse
+                            (la barre descend).
+                        </p>
+
+                        <div class="timer-demo" aria-label="Exemple de timer">
+                            <span class="timer-demo__mot">O C E A N</span>
+                            <span class="timer-demo__sec">15 sec</span>
+
+                            <div class="minuteur__barre" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                                aria-valuenow="65">
+                                <div class="minuteur__progression" style="width:65%"></div>
+                            </div>
+                        </div>
+
+                        <p class="regles-texte">
+                            <strong>3.</strong> Bonne réponse : tu gagnes des points.<br>
+                            Mauvaise réponse / temps fini : tu perds un cœur (une vie).
+                        </p>
+
+                        <div class="points-demo">
+                            <span class="points-demo__pts">+10 pts</span>
+
+                            <div class="vies" aria-label="Exemple de vies">
+                                <img class="vie" src="../assets/images/vie.png" alt="">
+                                <img class="vie" src="../assets/images/vie.png" alt="">
+                                <img class="vie" src="../assets/images/vie.png" alt="">
+                                <img class="vie" src="../assets/images/vie.png" alt="">
+                                <img class="vie" src="../assets/images/vie.png" alt="">
+                                <img class="vie vie--perdu" src="../assets/images/vie.png" alt="">
+                                <img class="vie vie--perdu" src="../assets/images/vie.png" alt="">
+                                <img class="vie vie--perdu" src="../assets/images/vie.png" alt="">
+                                <img class="vie vie--perdu" src="../assets/images/vie.png" alt="">
+                                <img class="vie vie--perdu" src="../assets/images/vie.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COLONNE DROITE -->
+                    <div class="regles-col">
+                        <p class="regles-texte">
+                            <strong>4.</strong> Durée d’une partie : <strong>10 manches</strong> (si tu ne perds pas
+                            toutes tes vies avant).
+                        </p>
+
+                        <div class="conseil-box" aria-label="Conseil">
+                            <span class="conseil-box__titre">Conseil</span>
+                            <span class="conseil-box__txt">évite les lettres pièges</span>
+                            <div class="tuile tuile--mini" aria-hidden="true"><span class="tuile__lettre">T</span></div>
+                        </div>
+
+                        <p class="regles-texte">
+                            <strong>5.</strong> Bonus &amp; aides : pour chaque mot, tu as 1 indice <button
+                                class="actions__btn" type="button" aria-label="Indice">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </button>disponible.<br>
+                            Tu peux aussi mélanger <button class="actions__btn" type="button" aria-label="Mélanger">
+                                <i class="fa-solid fa-mortar-pestle"></i>
+                            </button>
+                            les lettres et effacer<button class="actions__btn" type="button" aria-label="Effacer">
+                                <i class="fa-solid fa-trash"></i>
+                            </button> ta sélection pour recommencer.
+                        </p>
+                    </div>
+                </div>
+        </section>
+    </main>
+
+    <!-- Footer boutons (mêmes classes que les autres pages) -->
+    <footer class="actions actions--nav" aria-label="Navigation">
+        <a href="../landing-page.html" class="btn btn--back">Quitter</a>
+        <a href="./pages/jeu.html" class="btn btn--next">Compris !</a>
+    </footer>
+</body>
+
+</html>
