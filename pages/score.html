@@ -53,11 +53,21 @@
                     </tbody>
                 </table>
 
-                <div class="stats" aria-label="Statistiques">
-                    <div>Meilleur score : <span class="stats__valeur">360</span></div>
-                    <div>Joueur : <span class="stats__valeur">Karlvin</span></div>
-                    <div>Score : <span class="stats__valeur">120</span></div>
+                <!-- Ticket 3D -->
+                <div class="scene">
+                    <div class="ticket3d" id="ticket3d" aria-label="Golden Ticket manipulable">
+                        <div class="face front">
+                            <img src="../assets/images/medaille1_front.png" alt="Ticket recto" draggable="false">
+                        </div>
+                        <div class="face back">
+                            <img src="../assets/images/medaille1_back.png" alt="Ticket verso" draggable="false">
+                        </div>
+                    </div>
                 </div>
+
+                <p class="hint">Fais tourner la médaille</p>
+
+            </div>
 
             </div>
         </section>
@@ -69,6 +79,61 @@
         </footer>
 
     </main>
+
+    <script>
+        // Ticket 3D : rotation libre (souris + mobile)
+        (() => {
+            const ticket = document.getElementById("ticket3d");
+            if (!ticket) return;
+
+            let dragging = false;
+            let lastX = 0, lastY = 0;
+            let rotX = 0, rotY = 0;
+
+            const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+
+            function apply() {
+                ticket.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+            }
+
+            ticket.addEventListener("pointerdown", (e) => {
+                dragging = true;
+                lastX = e.clientX;
+                lastY = e.clientY;
+                ticket.setPointerCapture(e.pointerId);
+            });
+
+            ticket.addEventListener("pointermove", (e) => {
+                if (!dragging) return;
+
+                const dx = e.clientX - lastX;
+                const dy = e.clientY - lastY;
+
+                rotY += dx * 0.35;
+                rotX -= dy * 0.35;
+                rotX = clamp(rotX, -85, 85);
+
+                lastX = e.clientX;
+                lastY = e.clientY;
+
+                apply();
+            });
+
+            function endDrag() { dragging = false; }
+
+            ticket.addEventListener("pointerup", endDrag);
+            ticket.addEventListener("pointercancel", endDrag);
+            ticket.addEventListener("lostpointercapture", endDrag);
+
+            ticket.addEventListener("dblclick", () => {
+                rotX = 0; rotY = 0;
+                apply();
+            });
+
+            apply();
+        })();
+    </script>
+
 </body>
 
 </html>
