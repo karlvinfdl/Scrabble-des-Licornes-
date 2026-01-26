@@ -147,51 +147,55 @@ body {
 /* =========================
    TICKET 3D
 ========================= */
-.scene{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  perspective: 1200px;
+.scene {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    perspective: 1200px;
 }
 
-.ticket3d{
-  width: min(320px, 70vw);
-  aspect-ratio: 2 / 1;
-  position: relative;
-  transform-style: preserve-3d;
-  cursor: grab;
-  touch-action: none;
-  will-change: transform;
+.ticket3d {
+    width: min(320px, 70vw);
+    aspect-ratio: 2 / 1;
+    position: relative;
+    transform-style: preserve-3d;
+    cursor: grab;
+    touch-action: none;
+    will-change: transform;
 }
 
-.ticket3d:active{ cursor: grabbing; }
-
-.face{
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden
+.ticket3d:active {
+    cursor: grabbing;
 }
 
-.back{ transform: rotateY(180deg); }
-
-.ticket3d img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  user-select: none;
-  -webkit-user-drag: none;
-  pointer-events: none;
-  margin-top: -20px;
+.face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden
 }
 
-.hint{
-  margin-top: -20px;
-  color: var(--marron);
-  font-size: 16px;
-  font-weight: 800;
-  text-shadow: 0 2px 10px rgba(0,0,0,.25);
-  text-align: center;
+.back {
+    transform: rotateY(180deg);
+}
+
+.ticket3d img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+    margin-top: -20px;
+}
+
+.hint {
+    margin-top: -20px;
+    color: var(--marron);
+    font-size: 16px;
+    font-weight: 800;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, .25);
+    text-align: center;
 }
 
 /* =========================

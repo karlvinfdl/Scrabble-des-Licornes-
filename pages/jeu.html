@@ -15,6 +15,8 @@
 <body>
     <main class="jeu" role="application" aria-label="Scrabble des licornes">
 
+
+
         <!-- HUD -->
         <header class="hud">
             <div class="hud__infos">
@@ -83,8 +85,8 @@
                     <!-- Réponse -->
                     <div class="reponse" aria-label="Mot en cours">
                         <div class="reponse__ligne">
-                            <span class="reponse__lettre reponse__lettre--pleine">O</span>
-                            <span class="reponse__lettre reponse__lettre--pleine">C</span>
+                            <span class="reponse__lettre">_</span>
+                            <span class="reponse__lettre">_</span>
                             <span class="reponse__lettre">_</span>
                             <span class="reponse__lettre">_</span>
                             <span class="reponse__lettre">_</span>
@@ -112,6 +114,17 @@
 
 
         </section>
+
+        <div class="embers" aria-hidden="true">
+            <!-- 20 à 30 spans recommandés -->
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+
+
+
 
     </main>
     <footer class="actions actions--nav" aria-label="Navigation">
