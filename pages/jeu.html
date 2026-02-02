@@ -1,138 +1,118 @@
 <!doctype html>
 <html lang="fr">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Scrabble des licornes</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scrabble des licornes</title>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/jeu.css">
 
-    <link rel="stylesheet" href="/assets/css/jeu.css">
+  <!-- ✅ defer = le JS se charge après parsing du HTML -->
+  <script src="/game.js" defer></script>
 </head>
 
 <body>
-    <main class="jeu" role="application" aria-label="Scrabble des licornes">
+  <main class="jeu" role="application" aria-label="Scrabble des licornes">
 
+    <!-- HUD -->
+    <header class="hud">
+      <div class="hud__infos">
+        <p class="hud__ligne">
+          Joueur :
+          <span class="hud__valeur hud__valeur--joueur" id="player-name">Karlvin</span>
+        </p>
 
+        <p class="hud__ligne">
+          Score :
+          <span class="hud__valeur" id="score">0 pts</span>
+        </p>
 
-        <!-- HUD -->
-        <header class="hud">
-            <div class="hud__infos">
-                <p class="hud__ligne">
-                    Joueur :
-                    <span class="hud__valeur hud__valeur--joueur">Karlvin</span>
-                </p>
+        <p class="hud__ligne">
+          Trouver
+          <span class="hud__valeur" id="progress">0/10</span>
+        </p>
+      </div>
 
-                <p class="hud__ligne">
-                    Score :
-                    <span class="hud__valeur">120 pts</span>
-                </p>
+      <!-- ✅ Un seul bloc de vies, cohérent -->
+      <div class="hud__vies" aria-label="Vies" id="lives">
+        <!-- Le JS coeurs ici -->
+      </div>
+    </header>
 
-                <p class="hud__ligne">
-                    Trouver
-                    <span class="hud__valeur">4/10</span>
-                </p>
+    <!-- Panneau central -->
+    <section class="panneau" aria-label="Zone de jeu">
+      <div class="panneau__bois">
+        <h1 class="titre">Scrabble des licornes</h1>
+
+        <div class="contenu">
+          <!-- Minuteur -->
+          <div class="minuteur" aria-label="Minuteur">
+            <span class="minuteur__texte" id="timer-text">15 sec</span>
+
+            <div class="minuteur__barre"
+                 role="progressbar"
+                 aria-valuemin="0"
+                 aria-valuemax="100"
+                 aria-valuenow="100">
+              <div class="minuteur__progression" id="timer-bar" style="width:100%"></div>
             </div>
+          </div>
 
-            <div class="hud__vies" aria-label="Vies">
-                <img class="hud__coeur" src="/assets/images/vie.png" alt="vie">
-                <img class="hud__coeur" src="/assets/images/vie.png" alt="vie">
-                <img class="hud__coeur" src="/assets/images/vie.png" alt="vie">
-                <img class="hud__coeur" src="/assets/images/vie.png" alt="vie">
-                <img class="hud__coeur" src="/assets/images/vie.png" alt="vie">
+          <!-- Difficulté -->
+          <div class="niveau" aria-label="Difficulté">
+            <span class="niveau__texte" id="difficulty">Facile</span>
+          </div>
 
-                <img class="hud__coeur hud__coeur--perdu" src="/assets/images/vie.png" alt="vie perdue">
-                <img class="hud__coeur" src="/assets/images/vie.png" alt="vie">
-                <img class="hud__coeur" src="/assets/images/vie.png" alt="vie">
-                <img class="hud__coeur" src="/assets/images/vie.png" alt="vie">
-                <img class="hud__coeur" src="/assets/images/vie.png" alt="vie">
+          <!-- Lettres -->
+          <div class="tuiles" aria-label="Lettres proposées">
+            <!-- ✅ Le JS injecte les tuiles -->
+          </div>
+
+          <!-- Réponse -->
+          <div class="reponse" aria-label="Mot en cours">
+            <div class="reponse__ligne" aria-label="Emplacements">
+              <!-- ✅ Le JS injecte les slots -->
             </div>
-        </header>
-
-        <!-- Panneau central -->
-        <section class="panneau" aria-label="Zone de jeu">
-            <div class="panneau__bois">
-
-                <h1 class="titre">Scrabble des licornes</h1>
-
-                <div class="contenu">
-                    <!-- Minuteur -->
-                    <div class="minuteur" aria-label="Minuteur">
-                        <span class="minuteur__texte">15 sec</span>
-                        <div class="minuteur__barre" role="progressbar" aria-valuemin="0" aria-valuemax="100"
-                            aria-valuenow="65">
-                            <div class="minuteur__progression" style="width:65%"></div>
-                        </div>
-                    </div>
-
-                    <!-- Difficulté -->
-                    <div class="niveau" aria-label="Difficulté">
-                        <span class="niveau__texte">Difficile</span>
-                    </div>
-
-                    <!-- Lettres -->
-                    <div class="tuiles" aria-label="Lettres proposées">
-                        <div class="tuile"><span class="tuile__lettre">A</span></div>
-                        <div class="tuile"><span class="tuile__lettre">N</span></div>
-                        <div class="tuile"><span class="tuile__lettre">C</span></div>
-                        <div class="tuile"><span class="tuile__lettre">T</span></div>
-                        <div class="tuile"><span class="tuile__lettre">E</span></div>
-                        <div class="tuile"><span class="tuile__lettre">O</span></div>
-                    </div>
-
-                    <!-- Réponse -->
-                    <div class="reponse" aria-label="Mot en cours">
-                        <div class="reponse__ligne">
-                            <span class="reponse__lettre">_</span>
-                            <span class="reponse__lettre">_</span>
-                            <span class="reponse__lettre">_</span>
-                            <span class="reponse__lettre">_</span>
-                            <span class="reponse__lettre">_</span>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Actions (footer) -->
-                <footer class="footer-actions" aria-label="Actions">
-                    <button class="actions__btn" type="button" aria-label="Mélanger">
-                        <i class="fa-solid fa-mortar-pestle"></i>
-                    </button>
-
-                    <button class="actions__btn" type="button" aria-label="Indice">
-                        <i class="fa-solid fa-lightbulb"></i>
-                    </button>
-
-                    <button class="actions__btn" type="button" aria-label="Effacer">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </footer>
-
-            </div>
-
-
-        </section>
-
-        <div class="embers" aria-hidden="true">
-            <!-- 20 à 30 spans recommandés -->
-            <span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span>
+          </div>
         </div>
 
+        <!-- Actions (footer) -->
+        <footer class="footer-actions" aria-label="Actions">
+          <button class="actions__btn" type="button" aria-label="Mélanger" id="btn-mix">
+            <i class="fa-solid fa-mortar-pestle"></i>
+          </button>
 
+          <button class="actions__btn" type="button" aria-label="Indice" id="btn-hint">
+            <i class="fa-solid fa-lightbulb"></i>
+          </button>
 
+          <button class="actions__btn" type="button" aria-label="Effacer" id="btn-clear">
+            <i class="fa-solid fa-trash"></i>
+          </button>
 
-    </main>
+          <!-- 🔊 Bouton son -->
+          <button class="actions__btn actions__btn--sound"
+                  type="button"
+                  aria-label="Son activé"
+                  aria-pressed="true">
+            <i class="fa-solid fa-volume-high"></i>
+          </button>
+        </footer>
+      </div>
+
+      <div class="embers" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </section>
+
     <footer class="actions actions--nav" aria-label="Navigation">
-        <a href="./defaite.html" class="btn btn--next">Suivant</a>
+      <a href="./defaite.html" class="btn btn--next">Suivant</a>
     </footer>
-
-
-    <script src="/game.js"></script>
+  </main>
 </body>
-
 </html>
