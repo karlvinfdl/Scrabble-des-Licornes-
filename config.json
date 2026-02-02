@@ -1,31 +1,108 @@
 {
   "regles": {
-    "easy":   { "ptsWord": 8,  "bonusTemps": 1, "tickets": 1 },
-    "medium":    { "ptsWord": 12, "bonusTemps": 2, "tickets": 2 },
-    "hard":{ "ptsWord": 18, "bonusTemps": 3, "tickets": 3 }
+    "easy": {
+      "ptsWord": 8,
+      "bonusTemps": 1,
+      "tickets": 1
+    },
+    "medium": {
+      "ptsWord": 12,
+      "bonusTemps": 2,
+      "tickets": 2
+    },
+    "hard": {
+      "ptsWord": 18,
+      "bonusTemps": 3,
+      "tickets": 3
+    }
   },
-
   "mots": {
     "facile": [
-      "CHAT","MER","LUNE","SOLEIL","ARBRE","FLEUR","PLUIE","VENT","NEIGE","ETOILE",
-      "NUAGE","ROSE","BLEU","VERT","POMME","POIRE","MAISON","TABLE","CHAISE","PORTE",
-      "COEUR","MAGIE","LIVRE","BOUGIE","JARDIN","PLAGE","SABLE","RIVIERE","FORET","ETOILEE"
+      "CHAT",
+      "MER",
+      "LUNE",
+      "SOLEIL",
+      "ARBRE",
+      "FLEUR",
+      "PLUIE",
+      "VENT",
+      "NEIGE",
+      "ETOILE",
+      "NUAGE",
+      "ROSE",
+      "BLEU",
+      "VERT",
+      "POMME",
+      "POIRE",
+      "MAISON",
+      "TABLE",
+      "CHAISE",
+      "PORTE",
+      "COEUR",
+      "MAGIE",
+      "LIVRE",
+      "BOUGIE",
+      "JARDIN",
+      "PLAGE",
+      "SABLE",
+      "RIVIERE",
+      "FORET",
+      "ETOILEE"
     ],
-
     "moyen": [
-      "LICORNE","CRISTAL","ARCENCIEL","MYSTERE","SABLIER","LUMIERE","MONTAGNE","CASCADE",
-      "OCEAN","TEMPETE","SORTILEGE","FEERIQUE","VOYAGE","LEGENDES","SECRET","FANTASIE",
-      "COURAGE","HORIZON","MIROIR","PORTAIL","ROYAUME","MAGIQUE","DESTIN","AURORA",
-      "NUAGEUX","ENCHANTE","BALADE","SILENCE","ETOILES","ESPOIR"
+      "LICORNE",
+      "CRISTAL",
+      "ARCENCIEL",
+      "MYSTERE",
+      "SABLIER",
+      "LUMIERE",
+      "MONTAGNE",
+      "CASCADE",
+      "OCEAN",
+      "TEMPETE",
+      "SORTILEGE",
+      "FEERIQUE",
+      "VOYAGE",
+      "LEGENDES",
+      "SECRET",
+      "FANTASIE",
+      "COURAGE",
+      "HORIZON",
+      "MIROIR",
+      "PORTAIL",
+      "ROYAUME",
+      "MAGIQUE",
+      "DESTIN",
+      "AURORA",
+      "NUAGEUX",
+      "ENCHANTE",
+      "BALADE",
+      "SILENCE",
+      "ETOILES",
+      "ESPOIR"
     ],
-
     "difficile": [
-      "ALCHIMIE","METAMORPHOSE","CONSTELLATION","ENIGMATIQUE","LUMINESCENCE",
-      "IMMORTALITE","LABYRINTHE","PHILOSOPHIE","INCANTATION","CRISTALLISER",
-      "REMINISCENCE","SYNCHRONICITE","METAPHYSIQUE","COSMOGONIE","TRANSLUCIDE",
-      "INCOMMENSURABLE","INTERDIMENSION","HARMONISATION","EXISTENTIEL",
-      "MANIFESTATION","OBSCURITE","CHIMERIQUE","FRACTALITE","ENTRELACEMENT",
-      "EVANESCENT","ASTRALITE","INFINITUDE","PARADOXAL","INVISIBLE","IMMATERIALITE"
+      "ALCHIMIE",
+      "ASTRALITE",
+      "CHIMERIQUE",
+      "COSMOGONIE",
+      "CRISTALISE",
+      "ENIGMATIQUE",
+      "EVANESCENT",
+      "FRACTALITE",
+      "HORIZONAL",
+      "ILLUSION",
+      "INCANTER",
+      "INVISIBLE",
+      "LABYRINTHE",
+      "LUMINOSITE",
+      "METAPHORE",
+      "OBSCURITE",
+      "PARADOXAL",
+      "RESONANCE",
+      "SPECTRALE",
+      "SYMETRIE",
+      "TRANSLUCIDE"
     ]
   }
 }
